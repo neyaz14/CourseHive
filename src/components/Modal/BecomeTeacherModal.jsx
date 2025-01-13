@@ -3,21 +3,14 @@ import {
   Dialog,
   Transition,
   TransitionChild,
-  DialogPanel,
   DialogTitle,
+  DialogPanel,
 } from '@headlessui/react'
 import { Fragment } from 'react'
-
-import UpdatePlantForm from '../Form/UpdatePlantForm'
-
-const UpdatePlantModal = ({ setIsEditModalOpen, isOpen }) => {
+const BecomeTeacherModal = ({ closeModal, isOpen }) => {
   return (
     <Transition appear show={isOpen} as={Fragment}>
-      <Dialog
-        as='div'
-        className='relative z-10'
-        onClose={() => setIsEditModalOpen(false)}
-      >
+      <Dialog as='div' className='relative z-10' onClose={closeModal}>
         <TransitionChild
           as={Fragment}
           enter='ease-out duration-300'
@@ -46,17 +39,26 @@ const UpdatePlantModal = ({ setIsEditModalOpen, isOpen }) => {
                   as='h3'
                   className='text-lg font-medium text-center leading-6 text-gray-900'
                 >
-                  Update Plant Info
+                  Become A Teacher!
                 </DialogTitle>
-                <div className='mt-2 w-full'>
-                  <UpdatePlantForm />
+                <div className='mt-2'>
+                  <p className='text-sm text-gray-500'>
+                    Please read all the terms & conditions before becoming a
+                    Teacher.
+                  </p>
                 </div>
                 <hr className='mt-8 ' />
-                <div className='mt-2 '>
+                <div className='flex mt-2 justify-around'>
+                  <button
+                    type='button'
+                    className='inline-flex justify-center rounded-md border border-transparent bg-green-100 px-4 py-2 text-sm font-medium text-green-900 hover:bg-green-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-500 focus-visible:ring-offset-2'
+                  >
+                    Continue
+                  </button>
                   <button
                     type='button'
                     className='inline-flex justify-center rounded-md border border-transparent bg-red-100 px-4 py-2 text-sm font-medium text-red-900 hover:bg-red-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2'
-                    onClick={() => setIsEditModalOpen(false)}
+                    onClick={closeModal}
                   >
                     Cancel
                   </button>
@@ -70,9 +72,10 @@ const UpdatePlantModal = ({ setIsEditModalOpen, isOpen }) => {
   )
 }
 
-UpdatePlantModal.propTypes = {
-  setIsEditModalOpen: PropTypes.func,
+BecomeTeacherModal.propTypes = {
+  modalHandler: PropTypes.func,
+  closeModal: PropTypes.func,
   isOpen: PropTypes.bool,
 }
 
-export default UpdatePlantModal
+export default BecomeTeacherModal

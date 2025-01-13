@@ -45,7 +45,7 @@ const PurchaseModal = ({ closeModal, isOpen }) => {
                   Review Info Before Purchase
                 </DialogTitle>
                 <div className='mt-2'>
-                  <p className='text-sm text-gray-500'>Plant: Money Plant</p>
+                  <p className='text-sm text-gray-500'>Course: Money Course</p>
                 </div>
                 <div className='mt-2'>
                   <p className='text-sm text-gray-500'>Category: Indoor</p>

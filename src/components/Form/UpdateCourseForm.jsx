@@ -1,8 +1,8 @@
-const AddPlantForm = () => {
+const UpdateCourseForm = () => {
   return (
-    <div className='w-full min-h-[calc(100vh-40px)] flex flex-col justify-center items-center text-gray-800 rounded-xl bg-gray-50'>
+    <div className='w-full flex flex-col justify-center items-center text-gray-800 rounded-xl bg-gray-50'>
       <form>
-        <div className='grid grid-cols-1 lg:grid-cols-2 gap-10'>
+        <div className='grid grid-cols-1 gap-10'>
           <div className='space-y-6'>
             {/* Name */}
             <div className='space-y-1 text-sm'>
@@ -14,7 +14,7 @@ const AddPlantForm = () => {
                 name='name'
                 id='name'
                 type='text'
-                placeholder='Plant Name'
+                placeholder='Course Name'
                 required
               />
             </div>
@@ -42,7 +42,7 @@ const AddPlantForm = () => {
 
               <textarea
                 id='description'
-                placeholder='Write plant description here...'
+                placeholder='Write Course description here...'
                 className='block rounded-md focus:lime-300 w-full h-32 px-4 py-3 text-gray-800  border border-lime-300 bg-white focus:outline-lime-500 '
                 name='description'
               ></textarea>
@@ -95,7 +95,7 @@ const AddPlantForm = () => {
                       hidden
                     />
                     <div className='bg-lime-500 text-white border border-gray-300 rounded font-semibold cursor-pointer p-1 px-3 hover:bg-lime-500'>
-                      Upload
+                      Upload Image
                     </div>
                   </label>
                 </div>
@@ -107,7 +107,7 @@ const AddPlantForm = () => {
               type='submit'
               className='w-full p-3 mt-5 text-center font-medium text-white transition duration-200 rounded shadow-md bg-lime-500 '
             >
-              Save & Continue
+              Update Course
             </button>
           </div>
         </div>
@@ -116,4 +116,4 @@ const AddPlantForm = () => {
   )
 }
 
-export default AddPlantForm
+export default UpdateCourseForm

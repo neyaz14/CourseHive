@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import DeleteModal from '../../Modal/DeleteModal'
-import UpdatePlantModal from '../../Modal/UpdatePlantModal'
+import UpdateCourseModal from '../../Modal/UpdateCourseModal'
 
-const PlantDataRow = () => {
+const CourseDataRow = () => {
   let [isOpen, setIsOpen] = useState(false)
   const [isEditModalOpen, setIsEditModalOpen] = useState(false)
 
@@ -21,7 +21,7 @@ const PlantDataRow = () => {
             <div className='block relative'>
               <img
                 alt='profile'
-                src='https://i.ibb.co.com/rMHmQP2/money-plant-in-feng-shui-brings-luck.jpg'
+                src='https://i.ibb.co.com/rMHmQP2/money-Course-in-feng-shui-brings-luck.jpg'
                 className='mx-auto object-cover rounded h-10 w-15 '
               />
             </div>
@@ -29,7 +29,7 @@ const PlantDataRow = () => {
         </div>
       </td>
       <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
-        <p className='text-gray-900 whitespace-no-wrap'>Money Plant</p>
+        <p className='text-gray-900 whitespace-no-wrap'>Money Course</p>
       </td>
       <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
         <p className='text-gray-900 whitespace-no-wrap'>Indoor</p>
@@ -65,7 +65,7 @@ const PlantDataRow = () => {
           ></span>
           <span className='relative'>Update</span>
         </span>
-        <UpdatePlantModal
+        <UpdateCourseModal
           isOpen={isEditModalOpen}
           setIsEditModalOpen={setIsEditModalOpen}
         />
@@ -74,4 +74,4 @@ const PlantDataRow = () => {
   )
 }
 
-export default PlantDataRow
+export default CourseDataRow

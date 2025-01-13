@@ -1,15 +1,15 @@
 import { BsFillHouseAddFill } from 'react-icons/bs'
 import { MdHomeWork, MdOutlineManageHistory } from 'react-icons/md'
 import MenuItem from './MenuItem'
-const SellerMenu = () => {
+const TeacherMenu = () => {
   return (
     <>
       <MenuItem
         icon={BsFillHouseAddFill}
-        label='Add Plant'
-        address='add-plant'
+        label='Add Course'
+        address='add-Course'
       />
-      <MenuItem icon={MdHomeWork} label='My Inventory' address='my-inventory' />
+      <MenuItem icon={MdHomeWork} label='My Courses' address='my-Courses' />
       <MenuItem
         icon={MdOutlineManageHistory}
         label='Manage Orders'
@@ -19,4 +19,4 @@ const SellerMenu = () => {
   )
 }
 
-export default SellerMenu
+export default TeacherMenu

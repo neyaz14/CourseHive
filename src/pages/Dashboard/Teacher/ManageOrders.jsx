@@ -1,12 +1,12 @@
 import { Helmet } from 'react-helmet-async'
 
-import PlantDataRow from '../../../components/Dashboard/TableRows/PlantDataRow'
+import TeacherOrderDataRow from '../../../components/Dashboard/TableRows/TeacherOrderDataRow'
 
-const MyInventory = () => {
+const ManageOrders = () => {
   return (
     <>
       <Helmet>
-        <title>My Inventory</title>
+        <title>Manage Orders</title>
       </Helmet>
       <div className='container mx-auto px-4 sm:px-8'>
         <div className='py-8'>
@@ -19,19 +19,13 @@ const MyInventory = () => {
                       scope='col'
                       className='px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal'
                     >
-                      Image
-                    </th>
-                    <th
-                      scope='col'
-                      className='px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal'
-                    >
                       Name
                     </th>
                     <th
                       scope='col'
                       className='px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal'
                     >
-                      Category
+                      Customer
                     </th>
                     <th
                       scope='col'
@@ -45,23 +39,29 @@ const MyInventory = () => {
                     >
                       Quantity
                     </th>
+                    <th
+                      scope='col'
+                      className='px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal'
+                    >
+                      Address
+                    </th>
+                    <th
+                      scope='col'
+                      className='px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal'
+                    >
+                      Status
+                    </th>
 
                     <th
                       scope='col'
                       className='px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal'
                     >
-                      Delete
-                    </th>
-                    <th
-                      scope='col'
-                      className='px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal'
-                    >
-                      Update
+                      Action
                     </th>
                   </tr>
                 </thead>
                 <tbody>
-                  <PlantDataRow />
+                  <TeacherOrderDataRow />
                 </tbody>
               </table>
             </div>
@@ -72,4 +72,4 @@ const MyInventory = () => {
   )
 }
 
-export default MyInventory
+export default ManageOrders

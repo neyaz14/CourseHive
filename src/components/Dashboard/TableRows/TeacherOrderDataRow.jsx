@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import { useState } from 'react'
 import DeleteModal from '../../Modal/DeleteModal'
-const SellerOrderDataRow = () => {
+const TeacherOrderDataRow = () => {
   let [isOpen, setIsOpen] = useState(false)
   const closeModal = () => setIsOpen(false)
 
@@ -54,9 +54,9 @@ const SellerOrderDataRow = () => {
   )
 }
 
-SellerOrderDataRow.propTypes = {
+TeacherOrderDataRow.propTypes = {
   order: PropTypes.object,
   refetch: PropTypes.func,
 }
 
-export default SellerOrderDataRow
+export default TeacherOrderDataRow

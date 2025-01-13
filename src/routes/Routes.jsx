@@ -3,17 +3,17 @@ import Home from '../pages/Home/Home'
 import ErrorPage from '../pages/ErrorPage'
 import Login from '../pages/Login/Login'
 import SignUp from '../pages/SignUp/SignUp'
-import PlantDetails from '../pages/PlantDetails/PlantDetails'
+import CourseDetails from '../pages/CourseDetails/CourseDetails'
 import PrivateRoute from './PrivateRoute'
 import DashboardLayout from '../layouts/DashboardLayout'
-import AddPlant from '../pages/Dashboard/Seller/AddPlant'
+import AddCourse from '../pages/Dashboard/Teacher/AddCourse'
 import ManageUsers from '../pages/Dashboard/Admin/ManageUsers'
 import Profile from '../pages/Dashboard/Common/Profile'
 import Statistics from '../pages/Dashboard/Common/Statistics'
 import MainLayout from '../layouts/MainLayout'
-import MyInventory from '../pages/Dashboard/Seller/MyInventory'
-import ManageOrders from '../pages/Dashboard/Seller/ManageOrders'
-import MyOrders from '../pages/Dashboard/Customer/MyOrders'
+import MyCourses from '../pages/Dashboard/Teacher/MyCourses'
+import ManageOrders from '../pages/Dashboard/Teacher/ManageOrders'
+import MyOrders from '../pages/Dashboard/Student/MyOrders'
 
 export const router = createBrowserRouter([
   {
@@ -25,10 +25,10 @@ export const router = createBrowserRouter([
         path: '/',
         element: <Home />,
       },
-      {
-        path: '/plant/:id',
-        element: <PlantDetails />,
-      },
+      // {
+      //   path: '/Course/:id',
+      //   element: <CourseDetails />,
+      // },
     ],
   },
   { path: '/login', element: <Login /> },
@@ -49,50 +49,50 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
-      {
-        path: 'add-plant',
-        element: (
-          <PrivateRoute>
-            <AddPlant />
-          </PrivateRoute>
-        ),
-      },
-      {
-        path: 'my-inventory',
-        element: (
-          <PrivateRoute>
-            <MyInventory />
-          </PrivateRoute>
-        ),
-      },
-      {
-        path: 'manage-users',
-        element: (
-          <PrivateRoute>
-            <ManageUsers />
-          </PrivateRoute>
-        ),
-      },
-      {
-        path: 'profile',
-        element: (
-          <PrivateRoute>
-            <Profile />
-          </PrivateRoute>
-        ),
-      },
-      {
-        path: 'my-orders',
-        element: (
-          <PrivateRoute>
-            <MyOrders />
-          </PrivateRoute>
-        ),
-      },
-      {
-        path: 'manage-orders',
-        element: <ManageOrders />,
-      },
+      // {
+      //   path: 'add-Course',
+      //   element: (
+      //     <PrivateRoute>
+      //       <AddCourse />
+      //     </PrivateRoute>
+      //   ),
+      // },
+      // {
+      //   path: 'my-Courses',
+      //   element: (
+      //     <PrivateRoute>
+      //       <MyCourses />
+      //     </PrivateRoute>
+      //   ),
+      // },
+      // {
+      //   path: 'manage-users',
+      //   element: (
+      //     <PrivateRoute>
+      //       <ManageUsers />
+      //     </PrivateRoute>
+      //   ),
+      // },
+      // {
+      //   path: 'profile',
+      //   element: (
+      //     <PrivateRoute>
+      //       <Profile />
+      //     </PrivateRoute>
+      //   ),
+      // },
+      // {
+      //   path: 'my-orders',
+      //   element: (
+      //     <PrivateRoute>
+      //       <MyOrders />
+      //     </PrivateRoute>
+      //   ),
+      // },
+      // {
+      //   path: 'manage-orders',
+      //   element: <ManageOrders />,
+      // },
     ],
   },
 ])

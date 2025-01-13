@@ -1,13 +1,13 @@
 import { Helmet } from 'react-helmet-async'
-import Plants from '../../components/Home/Plants'
+import Courses from '../../components/Home/Courses'
 
 const Home = () => {
   return (
     <div>
       <Helmet>
-        <title> PlantNet | Buy Your Desired Plant</title>
+        <title> CourseNet | Buy Your Desired Course</title>
       </Helmet>
-      <Plants />
+      <Courses />
     </div>
   )
 }
