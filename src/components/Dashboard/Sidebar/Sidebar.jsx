@@ -11,7 +11,7 @@ import AdminMenu from './Menu/AdminMenu'
 import { Link } from 'react-router-dom'
 import TeacherMenu from './Menu/TeacherMenu'
 import CustomerMenu from './Menu/CustomerMenu'
-import logo from '../../../assets/images/logo-flat.png'
+import logo from '../../../assets/images/logo-flat.svg'
 const Sidebar = () => {
   const { logOut } = useAuth()
   const [isActive, setActive] = useState(false)
