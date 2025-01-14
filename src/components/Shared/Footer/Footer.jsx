@@ -1,11 +1,47 @@
+import React from 'react';
+import { FaEnvelope, FaPhoneAlt, FaFacebookF, FaTwitter, FaLinkedinIn } from 'react-icons/fa';
+
 const Footer = () => {
   return (
-    <footer className='px-4 divide-y  text-gray-800 relative bottom-0 left-0'>
-      <div className='py-6 text-sm text-center text-gray-400'>
-        © 2024-2025 CourseNet Inc. All rights reserved.
+    <footer className="bg-black text-white p-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+        <div>
+          <h4 className="font-bold text-lg">Skiloo</h4>
+          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+        </div>
+        <div>
+          <h4 className="font-bold text-lg">About</h4>
+          <ul>
+            <li>Categories</li>
+            <li>Features</li>
+            <li>Browse courses</li>
+          </ul>
+        </div>
+        <div>
+          <h4 className="font-bold text-lg">Company</h4>
+          <ul>
+            <li>Hire IO</li>
+            <li>Stories</li>
+            <li>Testimonials</li>
+            <li>Blogs</li>
+          </ul>
+        </div>
+        <div>
+          <h4 className="font-bold text-lg">Any Questions?</h4>
+          <p><FaEnvelope className="inline mr-2" /> hello@skiloo.com</p>
+          <p>Feel free! Ask us anything related to our service.</p>
+        </div>
+      </div>
+      <div className="mt-10 border-t border-gray-700 pt-4 text-center">
+        <p>© 2023 Skiloo. All Rights Reserved.</p>
+        <div className="flex justify-center mt-4 space-x-4">
+          <FaFacebookF className="hover:text-blue-500 transition-colors duration-300" />
+          <FaTwitter className="hover:text-blue-400 transition-colors duration-300" />
+          <FaLinkedinIn className="hover:text-blue-600 transition-colors duration-300" />
+        </div>
       </div>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

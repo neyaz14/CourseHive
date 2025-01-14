@@ -14,6 +14,8 @@ import MainLayout from '../layouts/MainLayout'
 import MyCourses from '../pages/Dashboard/Teacher/MyCourses'
 import ManageOrders from '../pages/Dashboard/Teacher/ManageOrders'
 import MyOrders from '../pages/Dashboard/Student/MyOrders'
+import AllCourses from '../pages/AllCourses'
+import TeachOnCourseHive from '../pages/TeachOnCourseHive'
 
 export const router = createBrowserRouter([
   {
@@ -24,11 +26,18 @@ export const router = createBrowserRouter([
       {
         path: '/',
         element: <Home />,
+      },{
+        path: '/allcourse',
+        element: <AllCourses />,
       },
-      // {
-      //   path: '/Course/:id',
-      //   element: <CourseDetails />,
-      // },
+      {
+        path: '/course/:id',
+        element: <CourseDetails />,
+      },
+      {
+        path: '/teachOnCourseHive',
+        element: <TeachOnCourseHive />,
+      },
     ],
   },
   { path: '/login', element: <Login /> },

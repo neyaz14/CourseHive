@@ -10,7 +10,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <div className='fixed w-full bg-white z-10 shadow-sm'>
+    <div className='fixed w-full bg-white  shadow-sm z-50'>
       <div className='py-4 border-b-[1px]'>
         <Container>
           <div className='flex flex-row  items-center justify-between gap-3 md:gap-0'>
@@ -18,8 +18,14 @@ const Navbar = () => {
             <Link to='/'>
               <img src={logo} alt='logo' width='100' height='100' />
             </Link>
+            <div>
+              <ul className='md:flex gap-4  hidden'>
+                <li><Link className=' text-center  btn bg-none' to='/allcourse'>All Courses</Link></li>
+                <li><Link className=' text-center  btn bg-none' to='/teachOnCourseHive'>Teach On CourseHive</Link></li>
+              </ul>
+            </div>
             {/* Dropdown Menu */}
-            <div className='relative'>
+            <div className='relative z-100'>
               <div className='flex flex-row items-center gap-3'>
                 {/* Dropdown btn */}
                 <div
@@ -40,6 +46,7 @@ const Navbar = () => {
                   </div>
                 </div>
               </div>
+
               {isOpen && (
                 <div className='absolute rounded-xl shadow-md w-[40vw] md:w-[10vw] bg-white overflow-hidden right-0 top-12 text-sm'>
                   <div className='flex flex-col cursor-pointer'>
@@ -49,6 +56,10 @@ const Navbar = () => {
                     >
                       Home
                     </Link>
+                    <ul className='flex flex-col gap-4'>
+                      <li><Link className='block md:hidden px-4 py-3 hover:bg-neutral-100 transition font-semibold' to='/allcourse'>All Courses</Link></li>
+                      <li><Link className='block md:hidden px-4 py-3 hover:bg-neutral-100 transition font-semibold' to='/teachOnCourseHive'>Teach On...</Link></li>
+                    </ul>
 
                     {user ? (
                       <>

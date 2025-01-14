@@ -36,7 +36,7 @@ const Banner = () => {
                     <img src={BannerPNG} alt="Student" className="md:max-w-[440px] max-w-80 z-30 " />
                     <motion.div 
                     
-                    className="absolute lg:top-10 lg:right-3 bg-white p-4 rounded shadow-md z-50">
+                    className="absolute lg:top-10 lg:right-3 bg-white p-4 rounded shadow-md z-40">
                         <p className="text-lg text-gray-950  font-bold">110K</p>
                         <p className="text-gray-700">Active Students</p>
                     </motion.div>
