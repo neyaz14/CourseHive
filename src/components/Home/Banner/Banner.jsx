@@ -1,12 +1,12 @@
 import React from 'react';
 import Container from '../../Shared/Container';
 import { motion } from 'framer-motion';
-
+import BannerPNG from '../../../assets/images/Banner.png'
 const Banner = () => {
     return (
         <Container>
             <motion.section
-                className="flex flex-col md:flex-row items-center justify-between px-6 md:px-20 bg-amber-100 py-36"
+                className="flex flex-col lg:flex-row items-center justify-between rounded-xl md:pl-20 md:px-0 sm:px-4 bg-[#FFF9E7] py-10"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 , transition: { duration: 1.8 }}}
                 >
@@ -31,17 +31,21 @@ const Banner = () => {
                     </div>
                 </div>
 
-                
-                <div className="md:w-1/2 mt-10 md:mt-0">
-                    <img src="/path/to/your/image.jpg" alt="Student" className="w-full h-auto" />
-                    <div className="absolute top-16 right-16 bg-white p-4 rounded shadow-md">
-                        <p className="text-lg font-bold">110K</p>
-                        <p className="text-gray-500">Active Students</p>
-                    </div>
-                    <div className="absolute bottom-16 left-16 bg-white p-4 rounded shadow-md">
-                        <p className="text-lg font-bold">100+</p>
-                        <p className="text-gray-500">Top Class Mentors</p>
-                    </div>
+
+                <div className="md:w-1/2 flex justify-end mt-10 md:mt-0 relative">
+                    <img src={BannerPNG} alt="Student" className="md:max-w-[440px] max-w-80 z-30 " />
+                    <motion.div 
+                    
+                    className="absolute lg:top-10 lg:right-3 bg-white p-4 rounded shadow-md z-50">
+                        <p className="text-lg text-gray-950  font-bold">110K</p>
+                        <p className="text-gray-700">Active Students</p>
+                    </motion.div>
+                    <motion.div 
+                    
+                    className="absolute lg:bottom-16 lg:left-16 bg-white p-4  rounded shadow-2xl">
+                        <p className="text-gray-950 text-lg font-bold">100+</p>
+                        <p className="text-gray-700">Top Class Mentors</p>
+                    </motion.div>
                 </div>
             </motion.section>
         </Container>
