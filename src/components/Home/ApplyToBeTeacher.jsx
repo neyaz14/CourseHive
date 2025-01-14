@@ -4,6 +4,7 @@ import Container from '../Shared/Container';
 import { Link } from 'react-router-dom';
 
 const ApplyToBeTeacher = () => {
+    // TODO : Rethink this design , add img 
     return (
         <Container>
             <div className="flex justify-center items-center p-6 bg-green-500 rounded-lg px-28   mb-3">

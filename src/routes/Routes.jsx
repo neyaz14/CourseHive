@@ -58,14 +58,14 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
-      // {
-      //   path: 'add-Course',
-      //   element: (
-      //     <PrivateRoute>
-      //       <AddCourse />
-      //     </PrivateRoute>
-      //   ),
-      // },
+      {
+        path: 'add-Course',
+        element: (
+          <PrivateRoute>
+            <AddCourse />
+          </PrivateRoute>
+        ),
+      },
       // {
       //   path: 'my-Courses',
       //   element: (
