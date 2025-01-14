@@ -11,7 +11,7 @@ const AddCourse = () => {
 
       {/* Form */}
       <div>
-        <h1 className='text-3xl font-bold text-gray-900'>Launch New Courses</h1>
+        <h1 className='text-3xl font-bold text-gray-900'>Launch New Courses...</h1>
       </div>
       <AddCourseForm />
     </Container>

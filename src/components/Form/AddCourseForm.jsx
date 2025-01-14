@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import useAxiosPublic from '../../hooks/useAxiosPublic';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
 import useAuth from '../../hooks/useAuth';
-
+import toast from 'react-hot-toast';
 
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_Hosting_key;
@@ -11,11 +11,11 @@ const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_ke
 
 const AddCourseForm = () => {
   // const { register, handleSubmit, reset } = useForm();
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const { register, handleSubmit, formState: { errors }, reset } = useForm();
   const axiosPublic = useAxiosPublic();
   const axiosSecure = useAxiosSecure();
   const { user } = useAuth();
-  console.log(user)
+  // console.log(user)
 
 
   const onSubmit = async (data) => {
@@ -25,7 +25,7 @@ const AddCourseForm = () => {
       headers: { 'content-type': 'multipart/form-data' }
     });
     // console.log(res)
-    if(res.data.success){
+    if (res.data.success) {
       const CourseInfo = {
         TeacherName: user.displayName,
         TeacherEmail: user.email,
@@ -34,12 +34,23 @@ const AddCourseForm = () => {
         description: data.description,
         title: data.title,
         image: res.data.data.display_url
+
+
+      }
+      // console.log(CourseInfo)
+      const courseRES = await axiosSecure.post('/courses', CourseInfo);
+      console.log(CourseInfo.data)
+      if (courseRES.data.insertedId) {
+        // show success popup
+        reset();
+        toast.success('Successfully added a course, wait for the admin approval !')
+        // console.log(courseRES.data.insertedId)
+      }
     }
-    console.log(CourseInfo)
-    }
+
+
 
   }
-
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="max-w-lg mx-auto p-4 bg-white shadow-md rounded-md">
