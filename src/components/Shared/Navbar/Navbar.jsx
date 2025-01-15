@@ -20,7 +20,7 @@ const Navbar = () => {
             </Link>
             <div>
               <ul className='md:flex gap-4  hidden'>
-                <li><Link className=' text-center  btn bg-none' to='/allcourse'>All Courses</Link></li>
+                <li><Link className=' text-center  btn bg-none' to='/courses'>All Courses</Link></li>
                 <li><Link className=' text-center  btn bg-none' to='/teachOnCourseHive'>Teach On CourseHive</Link></li>
               </ul>
             </div>
@@ -57,7 +57,7 @@ const Navbar = () => {
                       Home
                     </Link>
                     <ul className='flex flex-col gap-4'>
-                      <li><Link className='block md:hidden px-4 py-3 hover:bg-neutral-100 transition font-semibold' to='/allcourse'>All Courses</Link></li>
+                      <li><Link className='block md:hidden px-4 py-3 hover:bg-neutral-100 transition font-semibold' to='/courses'>All Courses</Link></li>
                       <li><Link className='block md:hidden px-4 py-3 hover:bg-neutral-100 transition font-semibold' to='/teachOnCourseHive'>Teach On...</Link></li>
                     </ul>
 
