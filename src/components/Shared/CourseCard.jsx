@@ -7,7 +7,7 @@ const CourseCard = ({ course }) => {
             <img className="w-full h-48 object-cover" src={image} alt={title} />
             <div className="px-6 py-4">
                 <div className="font-bold text-xl mb-2">{title}</div>
-                <p className="text-gray-700 text-base">{description}</p>
+                <p className="text-gray-700 text-base h-12 overflow-hidden">{description}</p>
             </div>
             <div className='flex justify-start items-center gap-5 px-6'>
                 <img src={TeacherPhotoURL} alt="" className='w-10 rounded-full'/>
