@@ -20,6 +20,7 @@ import TeacherRequest from '../pages/Dashboard/Admin/TeacherRequest'
 import AdminRoute from './AdminRoute'
 import AllUsers from '../pages/Dashboard/Admin/AllUsers'
 import TeacherRoute from './TeacherRoute'
+import AllCoursesAdmin from '../pages/Dashboard/Admin/AllCoursesAdmin'
 
 export const router = createBrowserRouter([
   {
@@ -75,8 +76,8 @@ export const router = createBrowserRouter([
         element: (<AdminRoute><TeacherRequest /></AdminRoute>),
       },
       {
-        path: 'allCourses',
-        element: (<AdminRoute><AllCourses /></AdminRoute>),
+        path: 'allCoursesAdmin',
+        element: (<AdminRoute><AllCoursesAdmin /></AdminRoute>),
       },
       {
         path: 'allUsers',

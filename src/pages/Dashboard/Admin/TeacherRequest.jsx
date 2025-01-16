@@ -14,7 +14,7 @@ const TeacherRequest = () => {
     const RequestedStudents = [...users].filter(teacher => teacher?.status === 'requested')
     // make teacher 
     const handleMakeTeacher = async (use) => {
-        // console.log(use.email)
+     
         try {
             const res = await AxiosSecure.patch(`/user/teacher/${use.email}`)
             console.log(res.data)

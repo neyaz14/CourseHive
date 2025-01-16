@@ -6,10 +6,10 @@ import { FaUsers } from 'react-icons/fa';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
 import Swal from 'sweetalert2'
 const AllUsers = () => {
+    const AxiosSecure = useAxiosSecure();
     const { user } = useAuth();
     const [allUsers, refetch, isLoading] = useAlluser();
     if (isLoading) return <LoadingSpinner></LoadingSpinner>
-    const AxiosSecure = useAxiosSecure();
 
 
 

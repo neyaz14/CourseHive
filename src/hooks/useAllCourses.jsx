@@ -7,14 +7,14 @@ const useAllCourses = () => {
     const axiosPublic = useAxiosPublic();
     // const 
 
-    const { data: courses = [], refetch } = useQuery({
+    const { data: courses = [], refetch , isLoading} = useQuery({
         queryKey: ['courses'],
         queryFn: async () => {
             const res = await axiosPublic.get('/courses');
             return res.data;
         }
     });
-    return [courses, refetch];
+    return [courses, refetch, isLoading];
 };
 
 export default useAllCourses;
