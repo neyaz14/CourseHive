@@ -16,6 +16,10 @@ import ManageOrders from '../pages/Dashboard/Teacher/ManageOrders'
 import MyOrders from '../pages/Dashboard/Student/MyOrders'
 import AllCourses from '../pages/AllCourses'
 import TeachOnCourseHive from '../pages/TeachOnCourseHive'
+import TeacherRequest from '../pages/Dashboard/Admin/TeacherRequest'
+import AdminRoute from './AdminRoute'
+import AllUsers from '../pages/Dashboard/Admin/AllUsers'
+import TeacherRoute from './TeacherRoute'
 
 export const router = createBrowserRouter([
   {
@@ -26,7 +30,7 @@ export const router = createBrowserRouter([
       {
         path: '/',
         element: <Home />,
-      },{
+      }, {
         path: '/courses',
         element: <AllCourses />,
       },
@@ -50,6 +54,8 @@ export const router = createBrowserRouter([
       </PrivateRoute>
     ),
     children: [
+
+
       {
         index: true,
         element: (
@@ -58,50 +64,36 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
+      // Admin Route 
+      {
+        path: 'teacherRequest',
+        element: (<AdminRoute><TeacherRequest /></AdminRoute>),
+      },
+      {
+        path: 'allCourses',
+        element: (<AdminRoute><AllCourses /></AdminRoute>),
+      },
+      {
+        path: 'allUsers',
+        element: (<AdminRoute><AllUsers /></AdminRoute>),
+      },
+
+      // for teacher
       {
         path: 'add-Course',
-        element: (
-          <PrivateRoute>
-            <AddCourse />
-          </PrivateRoute>
-        ),
+        element: (<TeacherRoute><AddCourse /></TeacherRoute>),
       },
-      // {
-      //   path: 'my-Courses',
-      //   element: (
-      //     <PrivateRoute>
-      //       <MyCourses />
-      //     </PrivateRoute>
-      //   ),
-      // },
-      // {
-      //   path: 'manage-users',
-      //   element: (
-      //     <PrivateRoute>
-      //       <ManageUsers />
-      //     </PrivateRoute>
-      //   ),
-      // },
-      // {
-      //   path: 'profile',
-      //   element: (
-      //     <PrivateRoute>
-      //       <Profile />
-      //     </PrivateRoute>
-      //   ),
-      // },
-      // {
-      //   path: 'my-orders',
-      //   element: (
-      //     <PrivateRoute>
-      //       <MyOrders />
-      //     </PrivateRoute>
-      //   ),
-      // },
-      // {
-      //   path: 'manage-orders',
-      //   element: <ManageOrders />,
-      // },
+      {
+        path: 'myCourses',
+        element: (<TeacherRoute><MyCourses /></TeacherRoute>),
+      },
+      // for student 
+      ,
+      {
+        path: 'myEnrolledClass',
+        element: (<PrivateRoute><MyCourses /></PrivateRoute>),
+      },
+
     ],
   },
 ])
