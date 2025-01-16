@@ -64,6 +64,11 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
+      {
+        path: 'profile',
+        element: (<PrivateRoute><Profile /></PrivateRoute>),
+      },
+
       // Admin Route 
       {
         path: 'teacherRequest',

@@ -6,7 +6,7 @@ import { useQuery } from "@tanstack/react-query";
 const useCheckRole = () => {
     const axiosPublic = useAxiosPublic();
     const {user , loading } = useAuth();
-    const {data: role, isloading} = useQuery(
+    const {data: role, isloading,refetch} = useQuery(
         {
             queryKey:['role', user?.email],
             queryFn: async()=>{
@@ -17,7 +17,7 @@ const useCheckRole = () => {
             }
         }
     )
-    return [role, isloading]
+    return [role, isloading,refetch]
 };
 
 export default useCheckRole;

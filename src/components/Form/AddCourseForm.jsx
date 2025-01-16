@@ -19,7 +19,7 @@ const AddCourseForm = () => {
 
 
   const onSubmit = async (data) => {
-    console.log(data)
+    // console.log(data)
     const imageFile = { image: data.image[0] }
     const res = await axiosPublic.post(image_hosting_api, imageFile, {
       headers: { 'content-type': 'multipart/form-data' }
@@ -39,7 +39,7 @@ const AddCourseForm = () => {
       }
       // console.log(CourseInfo)
       const courseRES = await axiosSecure.post('/courses', CourseInfo);
-      console.log(CourseInfo.data)
+      // console.log(CourseInfo.data)
       if (courseRES.data.insertedId) {
         // show success popup
         reset();

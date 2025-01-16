@@ -23,7 +23,7 @@ const CourseDetails = () => {
 
     // console.log(course)
     const { _id, image, title, description, price, TeacherName, TeacherEmail, TeacherPhotoURL, timestamp } = course;
-    console.log(_id, title, TeacherEmail)
+    // console.log(_id, title, TeacherEmail)
     return (
         <Container>
             <div className='my-5'>

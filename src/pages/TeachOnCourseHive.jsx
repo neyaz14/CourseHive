@@ -13,7 +13,7 @@ import LoadingSpinner from '../components/Shared/LoadingSpinner';
 
 const TeachOnCourseHive = () => {
     const { user } = useAuth();
-    console.log(user)
+    // console.log(user)
     const { register, handleSubmit, formState: { errors } } = useForm();
     const axiosSecure = useAxiosSecure();
  
@@ -22,9 +22,9 @@ const TeachOnCourseHive = () => {
     // console.log(users)
     // item?.email === user?.email
     const userInfo = users.filter(item=> item?.email == user?.email)
-    console.log(userInfo[0]?.status)
+    // console.log(userInfo[0]?.status)
     const onSubmit = async data => {
-        console.log(data)
+        // console.log(data)
         const newInfo = {
             title: data.title,
             experience: data.experience,
@@ -41,7 +41,7 @@ const TeachOnCourseHive = () => {
             try {
                 const { data } = await axiosSecure.patch(`/users/${user.email}`)
                 if(data.modifiedCount ){
-                    console.log(' ---> success')
+                    // console.log(' ---> success')
                     Swal.fire({
                         title: "Successfully applied for the teacher post.Wait for the approval !",
                         icon: "success",
@@ -56,9 +56,9 @@ const TeachOnCourseHive = () => {
             try {
                 const { data } = await axiosSecure.put(`/users/${user.email}`,newInfo)
                 if(data ){
-                    console.log(' ---> success', data)
+                    // console.log(' ---> success', data)
                 }
-                console.log(data)
+                // console.log(data)
             } catch (error) {
                 console.log(error)
             }

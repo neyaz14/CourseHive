@@ -19,7 +19,7 @@ const Sidebar = () => {
   const [isActive, setActive] = useState(false)
   const [role, isloading] = useCheckRole();
   if (isloading) return <LoadingSpinner></LoadingSpinner>;
-  console.log(role)
+  // console.log(role)
 
   // Sidebar Responsive Handler
   const handleToggle = () => {

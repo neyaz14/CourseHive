@@ -4,7 +4,7 @@ import coverImg from '../../../assets/images/cover.jpg'
 const Profile = () => {
   const { user } = useAuth()
 
-  console.log(user)
+  // console.log(user)
   return (
     <div className='flex justify-center items-center h-screen'>
       <Helmet>

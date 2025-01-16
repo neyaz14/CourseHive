@@ -24,7 +24,7 @@ const SignUp = () => {
         name,
         'https://lh3.googleusercontent.com/a/ACg8ocKUMU3XIX-JSUB80Gj_bYIWfYudpibgdwZE1xqmAGxHASgdvCZZ=s96-c'
       )
-      console.log(result)
+      // console.log(result)
 
       navigate('/')
       toast.success('Signup Successful')
