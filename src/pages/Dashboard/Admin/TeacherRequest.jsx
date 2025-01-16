@@ -24,6 +24,8 @@ const TeacherRequest = () => {
                     icon: "success",
                     draggable: true
                 });
+
+                refetch();
             }
 
         } catch (err) {
@@ -47,8 +49,8 @@ const TeacherRequest = () => {
                     icon: "success",
                     draggable: true
                 });
+                refetch();
             }
-
         } catch (err) {
             console.log(err)
             Swal.fire({
