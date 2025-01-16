@@ -2,7 +2,8 @@ import React from 'react';
 import useAuth from '../../../hooks/useAuth';
 import useAlluser from '../../../hooks/useAlluser';
 import LoadingSpinner from '../../../components/Shared/LoadingSpinner';
-import { FaUsers } from 'react-icons/fa';
+import { FaUsers  } from 'react-icons/fa';
+// import { ImCancelCircle } from "react-icons/im";
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
 import Swal from 'sweetalert2'
 
@@ -38,6 +39,27 @@ const handleMakeTeacher=async (use)=>{
 
 }
 
+const handleReject = async (useR)=>{
+    try{
+        const res = await AxiosSecure.patch(`/user/teacher/reject/${useR.email}`)
+        console.log(res.data)
+        if(res.data. modifiedCount){
+            Swal.fire({
+                title: "Successfully rejected ",
+                icon: "success",
+                draggable: true
+              });
+        }
+        
+    }catch(err){
+        console.log(err)
+        Swal.fire({
+            title: {err},
+            icon: "error",
+            draggable: true
+          });
+    }
+}
 
     return (
         <section>
@@ -45,31 +67,47 @@ const handleMakeTeacher=async (use)=>{
                 <h2 className="text-3xl">All Users</h2>
                 <h2 className="text-3xl">Total Users: {RequestedStudents?.length}</h2>
             </div>
-            <div className="overflow-x-auto">
+            <div className="overflow-x-auto text-xs text-black">
                 <table className="table table-zebra w-full">
                     {/* head */}
-                    <thead>
-                        <tr>
-                            <th></th>
+                    <thead >
+                        {/* TODO : make it responsive */}
+                        <tr className='flex items-center justify-between text-black'>
+                            
                             <th>Name</th>
-                            <th>Email</th>
-                            <th>Role</th>
+                            <th className='w-8 '>Image</th>
+                            <th>Expreience</th>
+                            <th>Category</th>
+                            <th>Status</th>
                             <th>Action</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody >
                         {
-                            RequestedStudents.map((user, index) => <tr key={user._id}>
-                                <th>{index + 1}</th>
+                            RequestedStudents.map((user, index) =>
+                             <tr
+                             className='flex items-center justify-between'
+                             key={user._id}>
+                               
                                 <td>{user?.name}</td>
-                                <td>{user?.email}</td>
-                                <td>{user?.role}</td>
-                                <td>
-                                    { user.role === 'admin' ? 'Admin' : <button
+                                <td><img src={user?.image} alt="" className='w-8'/></td>
+                                <td>{user?.experience}</td>
+                                <td>{user?.category}</td>
+                                <td>{user?.status}</td>
+                             
+                                <td className='flex gap-1 md:gap-3'>
+                                    {  <button
                                         onClick={() => handleMakeTeacher(user)}
-                                        className="btn btn-lg bg-orange-500">
+                                        className="btn btn-sm border-none bg-orange-500">
                                         <FaUsers className="text-white 
                                         text-2xl"></FaUsers>
+                                    </button>}
+                                    {  <button
+                                        onClick={() => handleReject(user)}
+                                        className="btn btn-sm border-none text-white font-bold bg-orange-500">
+                                            (X)
+                                        {/* <ImCancelCircle className="text-white  */}
+                                        {/*  text-2xl"></ImCancelCircle> */}
                                     </button>}
                                 </td>
                             </tr>)

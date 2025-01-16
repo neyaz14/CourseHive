@@ -11,7 +11,7 @@ const TeacherRoute = ({children}) => {
 
     if (loading || isloading) return <LoadingSpinner />
     if (role === 'teacher') return children
-    return <Navigate to='/dashboard' state={{ from: location }} replace='true' />
+    return <Navigate to='/dashboard' replace='true' />
 }
 
 
