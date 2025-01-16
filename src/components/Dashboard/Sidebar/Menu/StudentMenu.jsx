@@ -3,7 +3,7 @@ import { GrUserAdmin } from 'react-icons/gr'
 import MenuItem from './MenuItem'
 import { useState } from 'react'
 import BecomeTeacherModal from '../../../Modal/BecomeTeacherModal'
-const CustomerMenu = () => {
+const StudentMenu = () => {
   const [isOpen, setIsOpen] = useState(false)
 
   const closeModal = () => {
@@ -28,4 +28,4 @@ const CustomerMenu = () => {
   )
 }
 
-export default CustomerMenu
+export default StudentMenu

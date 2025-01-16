@@ -1,5 +1,5 @@
 import { Helmet } from 'react-helmet-async'
-import CustomerOrderDataRow from '../../../components/Dashboard/TableRows/CustomerOrderDataRow'
+import StudentOrderDataRow from '../../../components/Dashboard/TableRows/StudentOrderDataRow'
 
 const MyOrders = () => {
   return (
@@ -60,7 +60,7 @@ const MyOrders = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  <CustomerOrderDataRow />
+                  <StudentOrderDataRow />
                 </tbody>
               </table>
             </div>

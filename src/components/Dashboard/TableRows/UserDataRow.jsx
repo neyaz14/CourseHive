@@ -10,7 +10,7 @@ const UserDataRow = () => {
         <p className='text-gray-900 whitespace-no-wrap'>abc@gmail.com</p>
       </td>
       <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
-        <p className='text-gray-900 whitespace-no-wrap'>Customer</p>
+        <p className='text-gray-900 whitespace-no-wrap'>Student</p>
       </td>
       <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
         <p className='text-red-500 whitespace-no-wrap'>Unavailable</p>

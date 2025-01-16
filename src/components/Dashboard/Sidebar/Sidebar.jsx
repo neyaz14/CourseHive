@@ -10,11 +10,16 @@ import useAuth from '../../../hooks/useAuth'
 import AdminMenu from './Menu/AdminMenu'
 import { Link } from 'react-router-dom'
 import TeacherMenu from './Menu/TeacherMenu'
-import CustomerMenu from './Menu/CustomerMenu'
+import StudentMenu from './Menu/StudentMenu'
 import logo from '../../../assets/images/logo-flat.svg'
+import useCheckRole from '../../../hooks/useCheckRole'
+import LoadingSpinner from '../../Shared/LoadingSpinner'
 const Sidebar = () => {
   const { logOut } = useAuth()
   const [isActive, setActive] = useState(false)
+  const [role, isloading] = useCheckRole();
+  if (isloading) return <LoadingSpinner></LoadingSpinner>;
+  console.log(role)
 
   // Sidebar Responsive Handler
   const handleToggle = () => {
@@ -48,9 +53,8 @@ const Sidebar = () => {
 
       {/* Sidebar */}
       <div
-        className={`z-10 md:fixed flex flex-col justify-between overflow-x-hidden bg-gray-100 w-64 space-y-6 px-2 py-4 absolute inset-y-0 left-0 transform ${
-          isActive && '-translate-x-full'
-        }  md:translate-x-0  transition duration-200 ease-in-out`}
+        className={`z-10 md:fixed flex flex-col justify-between overflow-x-hidden bg-gray-100 w-64 space-y-6 px-2 py-4 absolute inset-y-0 left-0 transform ${isActive && '-translate-x-full'
+          }  md:translate-x-0  transition duration-200 ease-in-out`}
       >
         <div>
           <div>
@@ -71,15 +75,17 @@ const Sidebar = () => {
           <div className='flex flex-col justify-between flex-1 mt-6'>
             <nav>
               {/*  Menu Items */}
-              <CustomerMenu />
-              <TeacherMenu />
+              {role === 'student' && <StudentMenu></StudentMenu>}
+              {role === 'teacher' && <TeacherMenu></TeacherMenu>}
+
 
               <MenuItem
                 icon={BsGraphUp}
                 label='Statistics'
                 address='/dashboard'
               />
-              <AdminMenu />
+              {role === 'admin' && <AdminMenu></AdminMenu>}
+
             </nav>
           </div>
         </div>

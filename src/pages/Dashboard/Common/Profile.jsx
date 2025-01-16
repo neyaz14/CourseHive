@@ -26,7 +26,7 @@ const Profile = () => {
           </a>
 
           <p className='p-2 px-4 text-xs text-white bg-lime-500 rounded-full'>
-            Customer
+            Student
           </p>
           <p className='mt-2 text-xl font-medium text-gray-800 '>
             User Id: {user.uid}

@@ -51,7 +51,7 @@ const PurchaseModal = ({ closeModal, isOpen }) => {
                   <p className='text-sm text-gray-500'>Category: Indoor</p>
                 </div>
                 <div className='mt-2'>
-                  <p className='text-sm text-gray-500'>Customer: PH</p>
+                  <p className='text-sm text-gray-500'>Student: PH</p>
                 </div>
 
                 <div className='mt-2'>
