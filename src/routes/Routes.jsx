@@ -21,6 +21,7 @@ import AdminRoute from './AdminRoute'
 import AllUsers from '../pages/Dashboard/Admin/AllUsers'
 import TeacherRoute from './TeacherRoute'
 import AllCoursesAdmin from '../pages/Dashboard/Admin/AllCoursesAdmin'
+import CourseDetailsTeacher from '../pages/Dashboard/Teacher/CourseDetailsTeacher'
 
 export const router = createBrowserRouter([
   {
@@ -92,6 +93,10 @@ export const router = createBrowserRouter([
       {
         path: 'myCourses',
         element: (<TeacherRoute><MyCourses /></TeacherRoute>),
+      },
+      {
+        path: 'myCourses/:id',
+        element: (<TeacherRoute><CourseDetailsTeacher /></TeacherRoute>),
       },
       // for student 
       ,

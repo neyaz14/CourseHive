@@ -69,11 +69,12 @@ const AllCoursesAdmin = () => {
                     <thead >
                         {/* TODO : make it responsive */}
                         <tr className='flex items-center justify-between text-black'>
-                            <th>Title</th>
-                            <th className='w-8 '>Image</th>
-                            <th>Teacher Email</th>
-                            <th>Progress</th>
-                            <th>Action</th>
+                            {/* TODO : write flex-1 in every-form */}
+                            <th className='flex-1'>Title</th>
+                            <th className='w-8 flex-1'>Image</th>
+                            <th className='flex-1'>Teacher Email</th>
+                            <th className='flex-1'>Progress</th>
+                            <th className='flex-1'>Action</th>
                         </tr>
                     </thead>
                     <tbody >
@@ -82,11 +83,11 @@ const AllCoursesAdmin = () => {
                                 <tr
                                     className='flex items-center justify-between'
                                     key={course._id}>
-                                    <td>{course?.title}</td>
-                                    <td><img src={course?.image} alt="" className='w-8' /></td>
-                                    <td>{course?.TeacherEmail}</td>
-                                    <td>{course?.status}</td>
-                                    <td className='flex gap-1 md:gap-3'>
+                                    <td className='flex-1'>{course?.title}</td>
+                                    <td className='flex-1'><img src={course?.image} alt="" className='w-8' /></td>
+                                    <td className='flex-1'>{course?.TeacherEmail}</td>
+                                    <td className='flex-1'>{course?.status}</td>
+                                    <td className='flex flex-1 gap-1 md:gap-3'>
                                         {course?.status === 'pending' ?
                                             <>
                                                 <button
