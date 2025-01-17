@@ -1,5 +1,6 @@
 import { Helmet } from 'react-helmet-async'
 import { FaBan, FaCheck, FaUsers, } from 'react-icons/fa';
+import { FaRegFileLines,FaRegTrashCan,FaRegPenToSquare  } from "react-icons/fa6";
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
 import useAuth from '../../../hooks/useAuth';
 import useAllCourses from '../../../hooks/useAllCourses';
@@ -78,21 +79,21 @@ const MyCourses = () => {
                           <button
                             onClick={() => handleUpdate(course)}
                             className="btn btn-sm border-none bg-orange-500">
-                            <FaCheck className="text-white 
-                            text-2xl"></FaCheck >
+                            <FaRegPenToSquare className="text-white 
+                            text-2xl"></FaRegPenToSquare >
                           </button>
-                          <Link to={`/myCourse/${course?._id}`}>
+                          <Link to={`${course?._id}`}>
                             <button
                               // onClick={() => handledetails(course)}
                               className="btn btn-sm border-none bg-orange-500">
-                              <FaBan className="text-white text-2xl">
-                              </FaBan  >
+                              <FaRegFileLines  className="text-white text-2xl">
+                              </FaRegFileLines   >
                             </button>
                           </Link>
                           <button
                             onClick={() => handleDelete(course)}
                             className="btn btn-sm border-none bg-orange-500">
-                            <FaBan className="text-white text-2xl"></FaBan >
+                            <FaRegTrashCan  className="text-white text-2xl"></FaRegTrashCan  >
                           </button>
                     
                        
