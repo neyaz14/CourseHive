@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaEnvelope, FaPhoneAlt, FaFacebookF, FaTwitter, FaLinkedinIn } from 'react-icons/fa';
 
-const Footer = () => {
+const Footer = () => {  // TODO Recheck the name 
   return (
     <footer className="bg-black text-white p-10">
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
