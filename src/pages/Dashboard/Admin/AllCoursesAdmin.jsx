@@ -102,6 +102,7 @@ const AllCoursesAdmin = () => {
                                                     text-2xl"></FaBan >
                                                 </button>
                                             </>
+                                            // TODO : fix this button condition 
                                             : <button
                                                 // onClick={() => handleMakeAdmin(course)}
                                                 className="btn btn-disabled btn-sm border-none bg-orange-500">

@@ -34,8 +34,6 @@ const AddCourseForm = () => {
         description: data.description,
         title: data.title,
         image: res.data.data.display_url
-
-
       }
       // console.log(CourseInfo)
       const courseRES = await axiosSecure.post('/courses', CourseInfo);
