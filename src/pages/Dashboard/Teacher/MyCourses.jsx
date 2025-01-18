@@ -1,13 +1,17 @@
 import { Helmet } from 'react-helmet-async'
 import { FaBan, FaCheck, FaUsers, } from 'react-icons/fa';
-import { FaRegFileLines,FaRegTrashCan,FaRegPenToSquare  } from "react-icons/fa6";
+import { FaRegFileLines, FaRegTrashCan, FaRegPenToSquare } from "react-icons/fa6";
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
 import useAuth from '../../../hooks/useAuth';
 import useAllCourses from '../../../hooks/useAllCourses';
 import LoadingSpinner from '../../../components/Shared/LoadingSpinner';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import UpdateCourseModal from '../../../components/Modal/UpdateCourseModal';
 
 const MyCourses = () => {
+  const [isOpen, setIsOpen] = useState(false)
+  const [EditModalOpen, setIsEditModalOpen] = useState(false)
   const AxiosSecure = useAxiosSecure();
   const { user } = useAuth();
   const [courses, refetch, isLoading] = useAllCourses();
@@ -17,26 +21,23 @@ const MyCourses = () => {
   // console.log(TeacherCourses)
   refetch();
 
-  const handleDelete =async (cours) => {
-    try{
+  const handleDelete = async (cours) => {
+    try {
       const res = await AxiosSecure.delete(`/courses/${cours._id}`)
 
-      if(res.data.deletedCount){
+      if (res.data.deletedCount) {
         //  TODO : give swal fire or toast
         refetch();
       }
 
     }
-    catch(err){
+    catch (err) {
 
     }
   }
 
-  const handleUpdate=(cours)=>{
-    console.log(cours)
-  }
 
-  
+
   return (
     <>
       <Helmet>
@@ -73,30 +74,38 @@ const MyCourses = () => {
                     <td className='flex-1'>{course?.price}</td>
                     <td className='flex-1'>{course?.status}</td>
                     <td className='flex flex-1 gap-1 md:gap-3'>
-                      
-                     
-{/* TODO : apply conditional based on status */}
-{/* TODO : Update course  */}
-                          <button
-                            onClick={() => handleUpdate(course)}
-                            className="btn btn-sm border-none bg-orange-500">
-                            <FaRegPenToSquare className="text-white 
+
+
+                      {/* TODO : apply conditional based on status */}
+                  
+                      {/* Update : */}
+                      <button
+                        onClick={() => setIsEditModalOpen(true)}
+                        // onClick={() => handleUpdate(course)}
+                        className="btn btn-sm border-none bg-orange-500">
+                        <FaRegPenToSquare className="text-white 
                             text-2xl"></FaRegPenToSquare >
-                          </button>
-                          <Link to={`${course?._id}`}>
-                            <button
-                              // onClick={() => handledetails(course)}
-                              className="btn btn-sm border-none bg-orange-500">
-                              <FaRegFileLines  className="text-white text-2xl">
-                              </FaRegFileLines   >
-                            </button>
-                          </Link>
-                          <button
-                            onClick={() => handleDelete(course)}
-                            className="btn btn-sm border-none bg-orange-500">
-                            <FaRegTrashCan  className="text-white text-2xl"></FaRegTrashCan  >
-                          </button>
-                    
+                            {/* TODO : fix the problem of sending id or course data, here all data go */}
+                        <UpdateCourseModal
+                          courseID={course._id}
+                          EditModalOpen={EditModalOpen}
+                          setIsEditModalOpen={setIsEditModalOpen}
+                        ></UpdateCourseModal>
+                      </button>
+                      <Link to={`${course?._id}`}>
+                        <button
+                          // onClick={() => handledetails(course)}
+                          className="btn btn-sm border-none bg-orange-500">
+                          <FaRegFileLines className="text-white text-2xl">
+                          </FaRegFileLines   >
+                        </button>
+                      </Link>
+                      <button
+                        onClick={() => handleDelete(course)}
+                        className="btn btn-sm border-none bg-orange-500">
+                        <FaRegTrashCan className="text-white text-2xl"></FaRegTrashCan  >
+                      </button>
+
                     </td>
                   </tr>)
               }

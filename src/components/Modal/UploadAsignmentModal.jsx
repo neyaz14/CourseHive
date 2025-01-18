@@ -40,7 +40,7 @@ const UploadAsignmentModal = ({ isOpen, setIsOpen,courseDetails }) => {
             <Dialog open={isOpen} onClose={() => setIsOpen(false)} className="relative z-90">
                 <div className="fixed inset-0 flex w-screen items-center justify-center p-4">
                     <DialogPanel className="max-w-lg space-y-4 bg-opacity-98 rounded-2xl bg-green-800 p-12 text-white ">
-                        <DialogTitle className="font-bold">Assingment upload </DialogTitle>
+                        <DialogTitle className="font-bold">Assingment Upload </DialogTitle>
 
                         <section className='text-white'>
                             <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
