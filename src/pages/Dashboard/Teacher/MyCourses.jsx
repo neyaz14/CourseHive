@@ -96,8 +96,6 @@ const MyCourses = () => {
                             <FaRegTrashCan  className="text-white text-2xl"></FaRegTrashCan  >
                           </button>
                     
-                       
-                     
                     </td>
                   </tr>)
               }
