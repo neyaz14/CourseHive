@@ -22,13 +22,12 @@ const CourseDetailsTeacher = () => {
     if (isLoading) return <LoadingSpinner></LoadingSpinner>
   
     const courseDetails = [...courses].filter(course => course?.TeacherEmail === user?.email && course._id===id);
-    // console.log(courseDetails, id)
+    // console.log(courseDetails)
     const CourseD = courseDetails[0]
     return (
         <section>
             <div>
                 <h1 className='lg:text-5xl font-bold md:text-3xl text-2xl text-[#1b1c1b] text-center my-5'>Course Details</h1>
-
             </div>
             {/* top three card  */}
             <motion.div className='grid lg:grid-cols-3 grid-cols-1 gap-5'>
@@ -69,12 +68,12 @@ const CourseDetailsTeacher = () => {
                     <button
                     onClick={() => setIsOpen(true)}
                     className='btn text-white'>Assignment <FaRegSquarePlus/></button>
-                    <UploadAsignmentModal setIsOpen={setIsOpen} isOpen={isOpen}></UploadAsignmentModal>
+                    <UploadAsignmentModal courseDetails={courseDetails} setIsOpen={setIsOpen} isOpen={isOpen}></UploadAsignmentModal>
                 </div>
             </div>
 
             <div>
-                <AssingmentsTable></AssingmentsTable>
+                <AssingmentsTable courseDetails={courseDetails}></AssingmentsTable>
             </div>
         </section>
     );

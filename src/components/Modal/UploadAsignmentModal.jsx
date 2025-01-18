@@ -1,13 +1,38 @@
 import React, { useState } from 'react';
 import { Description, Dialog, DialogPanel, DialogTitle } from '@headlessui/react';
 import { useForm } from 'react-hook-form';
+import useAxiosSecure from '../../hooks/useAxiosSecure';
+import useAuth from '../../hooks/useAuth';
+import useAllCourses from '../../hooks/useAllCourses';
+import LoadingSpinner from '../Shared/LoadingSpinner';
+import Swal from 'sweetalert2'
+const UploadAsignmentModal = ({ isOpen, setIsOpen,courseDetails }) => {
+    const axiosSecure = useAxiosSecure();
+    const { user } = useAuth();
+    const [courses, refetch, isLoading] = useAllCourses();
+    if (isLoading) return <LoadingSpinner></LoadingSpinner>
+    const { register, handleSubmit, formState: { errors },reset } = useForm();
 
-const UploadAsignmentModal = ({ isOpen, setIsOpen }) => {
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const onSubmit =async (data) => {
+        // console.log('Form Data:', data);
+        const assignmentInfo = {
+            marks: parseFloat(data.assignmentMarks),
+            description: data.assignmentDescription,
+            title: data.assignmentTitle,
+            deadline: data.assignmentDeadline,
+            courseID : courseDetails[0]._id,
+          }
+          console.log(assignmentInfo)
+          const assingmentRES = await axiosSecure.post('/assignments', assignmentInfo);
+          if (assingmentRES.data.insertedId) {
+            Swal.fire({
+                title: "Successfully posted an assignment",
+                icon: "success",
+                draggable: true
+              });
+            reset();
+          }
 
-    const onSubmit = (data) => {
-        console.log('Form Data:', data);
-        console.log(data)
     };
 
     return (
@@ -49,10 +74,10 @@ const UploadAsignmentModal = ({ isOpen, setIsOpen }) => {
                                         Assignment Marks
                                     </label>
                                     <input
-                                        id="assignment-deadline"
+                                        id="assignment-marks"
                                         type="number"
                                         className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
-                                        {...register('assignmentDeadline', { required: 'Deadline is required' })}
+                                        {...register('assignmentMarks', { required: 'Deadline is required' })}
                                     />
                                     {errors.assignmentDeadline && <p className="text-red-500 text-sm mt-1">{errors.assignmentDeadline.message}</p>}
                                 </div>

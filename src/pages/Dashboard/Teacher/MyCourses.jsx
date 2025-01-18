@@ -76,6 +76,7 @@ const MyCourses = () => {
                       
                      
 {/* TODO : apply conditional based on status */}
+{/* TODO : Update course  */}
                           <button
                             onClick={() => handleUpdate(course)}
                             className="btn btn-sm border-none bg-orange-500">
