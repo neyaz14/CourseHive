@@ -5,10 +5,14 @@ import useAxiosPublic from '../../hooks/useAxiosPublic';
 import { useParams } from 'react-router-dom';
 import LoadingSpinner from '../../components/Shared/LoadingSpinner';
 import Container from '../../components/Shared/Container';
+import toast from 'react-hot-toast';
+import useAuth from '../../hooks/useAuth';
 
 const CourseDetails = () => {
     // TODO : Reimagine the design
+    const {user} = useAuth()
     const axiosPublic = useAxiosPublic();
+    const axiosSecure = useAxiosSecure();
     const { id } = useParams();
     // console.log(id)
 
@@ -21,9 +25,25 @@ const CourseDetails = () => {
     });
     if (isLoading) return <LoadingSpinner></LoadingSpinner>
 
-    // console.log(course)
     const { _id, image, title, description, price, TeacherName, TeacherEmail, TeacherPhotoURL, timestamp } = course;
-    // console.log(_id, title, TeacherEmail)
+ 
+    const handlePay=async(id)=>{
+        // console.log(id)
+        // console.log(course)
+        const enrolledInfo ={
+            // ! jokhon course deoa hocce or id ta _id hoye jacce tai same data field hocce 
+            //  TODO : fix this problem 
+            // ...course,
+            courseID: id,
+            studentId:user._id,
+            studentEmail: user.email
+        }
+        const res = await axiosSecure.post('/enrolledINFO', enrolledInfo);
+        if(res.data.insertedId){
+            toast.success(' Successfylly enrolled a course ')
+        }
+    }
+
     return (
         <Container>
             <div className='my-5'>
@@ -52,7 +72,10 @@ const CourseDetails = () => {
                         </div>
                         <div className="flex justify-between items-center">
                             <span className="text-xl font-bold text-blue-600">${price}</span>
-                            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+
+                            <button
+                            onClick={()=>handlePay(_id)}
+                            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                                 Go for payment
                             </button>
                         </div>

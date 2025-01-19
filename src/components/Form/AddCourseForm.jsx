@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import useAxiosPublic from '../../hooks/useAxiosPublic';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
 import useAuth from '../../hooks/useAuth';
-import toast from 'react-hot-toast';
+import toast from 'react-hot-toast';  
 
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_Hosting_key;
