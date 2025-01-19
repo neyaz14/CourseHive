@@ -3,17 +3,30 @@ import useAllAssignments from '../../../hooks/useAllAssignments';
 import LoadingSpinner from '../../../components/Shared/LoadingSpinner';
 import SubmitAssignmentModal from '../../../components/Modal/SubmitAssignmentModal';
 import AssignmentTableS from './Table/AssignmentTableS';
+import StudentGiveFbModal from '../../../components/Modal/StudentGiveFbModal';
 
 const AssignmentSection = ({ enrolledCourseDetails }) => {
     const [isOpen ,setIsOpen]= useState(false)
+    const [isFeedbackOpen ,setIsFeedbackOpen]= useState(false)
     const [assignments, refetch, isLoading] = useAllAssignments();
     if (isLoading) return <LoadingSpinner></LoadingSpinner>
 
     const currentAssignments = [...assignments].filter(assignment => assignment?.courseID === enrolledCourseDetails?._id);
     refetch();
-    // console.log(currentAssignments)
+    // console.log(enrolledCourseDetails)
+
     return (
         <div>
+            <div>
+                <button 
+                onClick={()=> setIsFeedbackOpen(true)}
+                className='btn'>Feedback 
+                <StudentGiveFbModal 
+                enrolledCourseDetails={enrolledCourseDetails}
+                isFeedbackOpen={isFeedbackOpen} setIsFeedbackOpen={setIsFeedbackOpen} ></StudentGiveFbModal>
+
+                </button>
+            </div>
 
             <div className="overflow-x-auto text-xs text-black">
                 <table className="table  table-xs w-full">

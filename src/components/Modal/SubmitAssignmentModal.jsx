@@ -6,14 +6,14 @@ import useAxiosSecure from '../../hooks/useAxiosSecure';
 import useAuth from '../../hooks/useAuth';
 import Swal from 'sweetalert2'
 
-const SubmitAssignmentModal = ({ isOpen, setIsOpen, enrolledCourseDetails, assignmentID,cAssingment }) => {
+const SubmitAssignmentModal = ({ isOpen, setIsOpen, enrolledCourseDetails, assignmentID, cAssingment }) => {
     const axiosSecure = useAxiosSecure();
     const { user } = useAuth()
     const [assignments, refetch, isLoading] = useAllAssignments();
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const currentAssignment = [...assignments].filter(i => i?._id === assignmentID);
     const currentassignment = currentAssignment[0]
-    console.log(currentassignment)
+    // console.log(currentassignment)
     const onSubmit = async (data) => {
         const submissionResult = {
             stdentemail: user.email,
@@ -28,10 +28,10 @@ const SubmitAssignmentModal = ({ isOpen, setIsOpen, enrolledCourseDetails, assig
                 draggable: true
             });
             refetch();
-             setIsOpen(false)
+            setIsOpen(false)
         }
-        console.log(submissionResult)
-        
+
+
     }
     return (
         <div>
@@ -46,7 +46,7 @@ const SubmitAssignmentModal = ({ isOpen, setIsOpen, enrolledCourseDetails, assig
                             </div>
                             <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
                                 <div>
-                                    
+
                                     <input
                                         id="assignment"
                                         className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"

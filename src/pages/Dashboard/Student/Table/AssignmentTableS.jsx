@@ -8,7 +8,6 @@ const AssignmentTableS = ({ cAssingment }) => {
     const [assignments, refetch, isLoading] = useAllAssignments();
     if (isLoading) return <LoadingSpinner></LoadingSpinner>
 
-    // const currentAssignments = [...assignments].filter(assignment => assignment?.courseID === enrolledCourseDetails?._id);
     refetch();
     return (
         <>
