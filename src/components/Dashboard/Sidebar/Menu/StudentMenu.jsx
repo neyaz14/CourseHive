@@ -12,7 +12,7 @@ const StudentMenu = () => {
 
   return (
     <>
-      <MenuItem icon={BsFingerprint} label='My Orders' address='my-orders' />
+
       <MenuItem icon={BsFingerprint} label='My Enrolled Class' address='myEnrolledClass' />
       <MenuItem icon={BsFingerprint} label='Become A Teacher' address='/teachOnCourseHive' />
 

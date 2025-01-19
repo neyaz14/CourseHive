@@ -10,6 +10,7 @@ import useAuth from '../../hooks/useAuth';
 
 const CourseDetails = () => {
     // TODO : Reimagine the design
+    // TODO : add stripe here 
     const {user} = useAuth()
     const axiosPublic = useAxiosPublic();
     const axiosSecure = useAxiosSecure();
@@ -28,14 +29,11 @@ const CourseDetails = () => {
     const { _id, image, title, description, price, TeacherName, TeacherEmail, TeacherPhotoURL, timestamp } = course;
  
     const handlePay=async(id)=>{
-        // console.log(id)
-        // console.log(course)
         const enrolledInfo ={
             // ! jokhon course deoa hocce or id ta _id hoye jacce tai same data field hocce 
             //  TODO : fix this problem 
-            // ...course,
+
             courseID: id,
-            studentId:user._id,
             studentEmail: user.email
         }
         const res = await axiosSecure.post('/enrolledINFO', enrolledInfo);
