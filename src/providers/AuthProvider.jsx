@@ -51,74 +51,45 @@ const AuthProvider = ({ children }) => {
     })
   }
 
+
+
+  // ----------------------------------------------------------------------------------
   // onAuthStateChange
-  // useEffect(() => {
-  //   const unsubscribe = onAuthStateChanged(auth, async currentUser => {
-  //     console.log('CurrentUser-->', currentUser?.email)
-  //     if (currentUser?.email) {
-  //       setUser(currentUser)
-  //       // save user info in db
-  //       await axios.post(
-  //         `http://localhost:5000/users/${currentUser?.email}`,
-  //         {
-  //           name: currentUser?.displayName,
-  //           image: currentUser?.photoURL,
-  //           email: currentUser?.email,
-  //         }
-  //       )
-
-  //       // Get JWT token
-  //       await axios.post(`http://localhost:5000/jwt`,{ email: currentUser?.email,},{ withCredentials: true })
-  //     } else {
-  //       setUser(currentUser)
-  //       await axios.get(`http://localhost:5000/logout`, {
-  //         withCredentials: true,
-  //       })
-  //     }
-  //     setLoading(false)
-  //   })
-  //   return () => {
-  //     return unsubscribe()
-  //   }
-  // }, [])
-
-// ----------------------------------------------------------------------------------
-// ----------------------------------------------------------------------------------
-// ----------------------------------------------------------------------------------
-// ----------------------------------------------------------------------------------
-// onAuthStateChange
-useEffect(() => {
-  const unsubscribe = onAuthStateChanged(auth, currentUser => {
-    setUser(currentUser)
-    // console.log('CurrentUser-->', currentUser)
-    if(currentUser){
-      // save user info in db
-         axios.post(
-          `http://localhost:5000/users/${currentUser?.email}`,{  name: currentUser?.displayName,
-            image: currentUser?.photoURL,
-            email: currentUser?.email,
-          }
-        )
-      const userInfo ={
-        email: currentUser.email
-      }
-      axiosPublic.post('/jwt',userInfo )
-      .then(res=>{
-        if(res.data.token){
-          localStorage.setItem('access-token', res.data.token);
-          setLoading(false)
+  useEffect(() => {
+    // TODO : fix jwt
+    // ! jwt logout system is not working 
+    const unsubscribe = onAuthStateChanged(auth, currentUser => {
+      setUser(currentUser)
+      // console.log('CurrentUser-->', currentUser)
+      if (currentUser) {
+        // save user info in db
+        axios.post(`http://localhost:5000/users/${currentUser?.email}`, {
+          name: currentUser?.displayName,
+          image: currentUser?.photoURL,
+          email: currentUser?.email,
+        })
+        const userInfo = {
+          email: currentUser.email
         }
-      })
-    }else{
-      localStorage.removeItem('access-token')
-      setLoading(false)
+        axiosPublic.post('/jwt', userInfo)
+          .then(res => {
+            if (res.data.token) {
+              // console.log(res.data.token)
+              localStorage.setItem('access-token', res.data.token);
+              setLoading(false)
+            }
+          })
+      } else {
+        // console.log('access-token')
+        localStorage.removeItem('access-token')
+        setLoading(false)
+      }
+
+    })
+    return () => {
+      return unsubscribe()
     }
-    
-  })
-  return () => {
-    return unsubscribe()
-  }
-}, [axiosPublic])
+  }, [axiosPublic])
 
   const authInfo = {
     user,
