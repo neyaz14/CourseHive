@@ -4,18 +4,30 @@ import useAuth from '../../hooks/useAuth';
 import useAllAssignments from '../../hooks/useAllAssignments';
 import { useForm } from 'react-hook-form';
 import { Dialog, DialogPanel, DialogTitle } from '@headlessui/react';
-
+import Swal from 'sweetalert2'
 const StudentGiveFbModal = ({ enrolledCourseDetails, isFeedbackOpen, setIsFeedbackOpen }) => {
 
     const axiosSecure = useAxiosSecure();
     const { user } = useAuth()
-    const [assignments, refetch, isLoading] = useAllAssignments();
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
-    // const currentAssignment = [...assignments].filter(i => i?._id === assignmentID);
-    // const currentassignment = currentAssignment[0]
-    const onSubmit=(data)=>{
+    const onSubmit = async (data) => {
         // TODO : post feedback data also in server side
         console.log(data)
+        const feedbackInfo = {
+            feedback: data.feedback,
+            studentEmail: user.email,
+            courseiD: enrolledCourseDetails._id
+        }
+        const res = await axiosSecure.post('/feedback', feedbackInfo)
+        if (res.data.insertedId) {
+            Swal.fire({
+                title: "Successfully submited a feedback ",
+                icon: "success",
+                draggable: true
+            });
+            setIsFeedbackOpen(false)
+        }
+        console.log(feedbackInfo)
     }
     return (
         <div>
@@ -32,15 +44,15 @@ const StudentGiveFbModal = ({ enrolledCourseDetails, isFeedbackOpen, setIsFeedba
                                 <div>
 
                                     <input
-                                        id="assignment"
+                                        id="feedback"
                                         className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
-                                        {...register('assignment', { required: 'Feedback is required' })}
+                                        {...register('feedback', { required: 'Feedback is required' })}
                                     />
 
                                 </div>
                                 <button
                                     type="submit"
-                                    id="assignment-submit-btn"
+                                    id="feedback-submit-btn"
                                     className="w-full py-2 px-4 bg-blue-600 text-white rounded-md shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
                                     Submit Feedback
                                 </button>
