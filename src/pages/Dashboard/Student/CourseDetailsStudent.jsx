@@ -2,11 +2,15 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import useAllCourses from '../../../hooks/useAllCourses';
 import AssignmentSection from './AssignmentSection';
+import LoadingSpinner from '../../../components/Shared/LoadingSpinner';
 
 const CourseDetailsStudent = () => {
     const { id } = useParams();
     // console.log(id)
     const [courses,refetch, isLoading] = useAllCourses();
+
+    refetch()
+    if(isLoading) return <LoadingSpinner></LoadingSpinner>
     const specificCourse = [...courses].filter(i=> i._id=== id)
     // console.log(specificCourse[0])
     const enrolledCourseDetails = specificCourse[0];
