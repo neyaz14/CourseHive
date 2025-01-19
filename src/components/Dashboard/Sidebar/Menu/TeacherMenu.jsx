@@ -10,11 +10,7 @@ const TeacherMenu = () => {
         address='add-Course'
       />
       <MenuItem icon={MdHomeWork} label='My Courses' address='myCourses' />
-      <MenuItem
-        icon={MdOutlineManageHistory}
-        label='Manage Orders'
-        address='manage-orders'
-      />
+     
     </>
   )
 }
