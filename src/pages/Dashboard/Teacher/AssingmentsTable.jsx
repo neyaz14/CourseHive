@@ -13,9 +13,9 @@ const AssingmentsTable = ({ courseDetails }) => {
   const { user } = useAuth();
   const [courses] = useAllCourses();
   const [assignments, refetch, isLoading] = useAllAssignments();
+  // console.log(assignments)
   if (isLoading) return <LoadingSpinner></LoadingSpinner>
   refetch();
-  // console.log(assignments)
   // console.log(courseDetails[0])
   const currentAssignments = [...assignments].filter(assignment => assignment?.courseID === courseDetails[0]?._id);
   // console.log(currentAssignments)

@@ -14,7 +14,7 @@ const SignUp = () => {
     const name = form.name.value
     const email = form.email.value
     const password = form.password.value
-
+// TODO : doesnot work the name and photo uploading 
     try {
       //2. User Registration
       const result = await createUser(email, password)

@@ -23,7 +23,7 @@ const UpdateCourseForm = ({course}) => {
       headers: { 'content-type': 'multipart/form-data' }
     });
     if (res.data.success) {
-      toast.success('pic Successfully uploaded')
+      // toast.success('pic Successfully uploaded')
       const CourseUPInfo = {
         TeacherName: user.displayName,
         TeacherEmail: user.email,

@@ -10,8 +10,8 @@ import { Fragment } from 'react'
 
 import UpdateCourseForm from '../Form/UpdateCourseForm'
 
-const UpdateCourseModal = ({ setIsEditModalOpen, isOpen, EditModalOpen, course }) => {
-  console.log(course)
+const UpdateCourseModal = ({ setIsEditModalOpen, isOpen, EditModalOpen, course,refetch }) => {
+  refetch();
   return (
     <div>
       <Dialog open={EditModalOpen} onClose={() => setIsEditModalOpen(false)} className="relative z-90">
