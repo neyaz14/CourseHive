@@ -1,21 +1,26 @@
 import useAuth from '../../../hooks/useAuth'
 import { Helmet } from 'react-helmet-async'
 import coverImg from '../../../assets/images/cover.jpg'
+import useAlluser from '../../../hooks/useAlluser'
+import LoadingSpinner from '../../../components/Shared/LoadingSpinner'
 const Profile = () => {
   const { user } = useAuth()
-
-  // console.log(user)
+  const [users, refetch, isLoading]= useAlluser();
+  if(isLoading) return <LoadingSpinner></LoadingSpinner>
+  refetch();
+  const [currentUser] = [...users].filter(i=>i.email === user.email)
+  console.log(currentUser)
   return (
     <div className='flex justify-center items-center h-screen'>
       <Helmet>
         <title>Profile</title>
       </Helmet>
       <div className='bg-white shadow-lg rounded-2xl md:w-4/5 lg:w-3/5'>
-        <img
+        {/* <img
           alt='cover photo'
           src={coverImg}
           className='w-full mb-4 rounded-t-lg h-56'
-        />
+        /> */}
         <div className='flex flex-col items-center justify-center p-4 -mt-16'>
           <a href='#' className='relative block'>
             <img
@@ -26,10 +31,10 @@ const Profile = () => {
           </a>
 
           <p className='p-2 px-4 text-xs text-white bg-lime-500 rounded-full'>
-            Student
+            {currentUser?.role}
           </p>
           <p className='mt-2 text-xl font-medium text-gray-800 '>
-            User Id: {user.uid}
+            {/* User Id: {user.uid} */}
           </p>
           <div className='w-full p-2 mt-4 rounded-lg'>
             <div className='flex flex-wrap items-center justify-between text-sm text-gray-600 '>
@@ -44,14 +49,7 @@ const Profile = () => {
                 <span className='font-bold text-black '>{user.email}</span>
               </p>
 
-              <div>
-                <button className='bg-lime-500 px-10 py-1 rounded-lg text-black cursor-pointer hover:bg-lime-800 block mb-1'>
-                  Update Profile
-                </button>
-                <button className='bg-lime-500 px-7 py-1 rounded-lg text-black cursor-pointer hover:bg-lime-800'>
-                  Change Password
-                </button>
-              </div>
+             
             </div>
           </div>
         </div>

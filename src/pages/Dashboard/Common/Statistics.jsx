@@ -6,7 +6,7 @@ const Statistics = () => {
       <Helmet>
         <title>Dashboard</title>
       </Helmet>
-      <AdminStatistics />
+      {/* <AdminStatistics /> */}
     </div>
   )
 }
