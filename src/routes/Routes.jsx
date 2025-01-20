@@ -24,6 +24,7 @@ import AllCoursesAdmin from '../pages/Dashboard/Admin/AllCoursesAdmin'
 import CourseDetailsTeacher from '../pages/Dashboard/Teacher/CourseDetailsTeacher'
 import MyEnrolledClass from '../pages/Dashboard/Student/MyEnrolledClass'
 import CourseDetailsStudent from '../pages/Dashboard/Student/CourseDetailsStudent'
+import Payment from '../pages/Payment'
 
 export const router = createBrowserRouter([
   {
@@ -45,6 +46,10 @@ export const router = createBrowserRouter([
       {
         path: '/teachOnCourseHive',
         element: <TeachOnCourseHive />,
+      },
+      {
+        path: '/pay/:id',
+        element: <Payment />,
       },
     ],
   },

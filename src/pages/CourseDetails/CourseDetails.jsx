@@ -2,7 +2,7 @@ import React from 'react';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
 import { useQuery } from '@tanstack/react-query';
 import useAxiosPublic from '../../hooks/useAxiosPublic';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import LoadingSpinner from '../../components/Shared/LoadingSpinner';
 import Container from '../../components/Shared/Container';
 import toast from 'react-hot-toast';
@@ -11,7 +11,7 @@ import useAuth from '../../hooks/useAuth';
 const CourseDetails = () => {
     // TODO : Reimagine the design
     // TODO : add stripe here 
-    const {user} = useAuth()
+    const { user } = useAuth()
     const axiosPublic = useAxiosPublic();
     const axiosSecure = useAxiosSecure();
     const { id } = useParams();
@@ -27,20 +27,8 @@ const CourseDetails = () => {
     if (isLoading) return <LoadingSpinner></LoadingSpinner>
 
     const { _id, image, title, description, price, TeacherName, TeacherEmail, TeacherPhotoURL, timestamp } = course;
- 
-    const handlePay=async(id)=>{
-        const enrolledInfo ={
-            // ! jokhon course deoa hocce or id ta _id hoye jacce tai same data field hocce 
-            //  TODO : fix this problem 
 
-            courseID: id,
-            studentEmail: user.email
-        }
-        const res = await axiosSecure.post('/enrolledINFO', enrolledInfo);
-        if(res.data.insertedId){
-            toast.success(' Successfylly enrolled a course ')
-        }
-    }
+    
 
     return (
         <Container>
@@ -71,11 +59,14 @@ const CourseDetails = () => {
                         <div className="flex justify-between items-center">
                             <span className="text-xl font-bold text-blue-600">${price}</span>
 
-                            <button
-                            onClick={()=>handlePay(_id)}
-                            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                                Go for payment
-                            </button>
+                            <Link to={`/pay/${_id}`}> 
+                                <button
+                                    // onClick={() => handlePay(_id)}
+                                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                                    Go for payment
+                                </button>
+                            </Link>
+
                         </div>
                         <p className="text-gray-500 text-sm mt-4">
                             {/* TODO : fix the language */}
