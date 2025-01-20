@@ -3,7 +3,8 @@ import axios from "axios";
 // http://localhost:5000
 
  const axiosPublic = axios.create({
-    baseURL: 'https://assignment12-silk.vercel.app',
+    // baseURL: 'https://assignment12-silk.vercel.app',
+    baseURL: import.meta.env.VITE_URL,
     withCredentials: true,
   })
   

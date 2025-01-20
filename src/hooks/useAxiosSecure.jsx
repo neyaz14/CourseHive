@@ -3,8 +3,9 @@ import { useNavigate } from "react-router-dom";
 import useAuth from "./useAuth";
 // assignment12-silk.vercel.app
 const axiosSecure = axios.create({
-    // baseURL: 'http://localhost:5000',
-    baseURL: 'https://assignment12-silk.vercel.app',
+   
+    // baseURL: 'https://assignment12-silk.vercel.app',
+    baseURL: import.meta.env.VITE_URL,
     withCredentials: true,
 })
 const useAxiosSecure = () => {

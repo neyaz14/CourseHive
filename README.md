@@ -6,10 +6,10 @@ CourseHive is an online learning marketplace where users can buy and sell a vari
 ## Important Links
 - **Client Side**:
   - Github Repo : https://github.com/Programming-Hero-Web-Course4/b10a12-client-side-neyaz14
-  - Live Link :
+  - Live Link : https://simple-firebase-4327b.web.app
 - **Server Side**:
   - Github Repo : https://github.com/Programming-Hero-Web-Course4/b10a12-server-side-neyaz14
-  - Live Link :
+
 
 
 ## Features
