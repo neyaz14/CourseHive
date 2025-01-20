@@ -15,10 +15,10 @@ const AllUsers = () => {
 
 
     const handleMakeAdmin = async (useR) => {
-        console.log(useR)
+        // console.log(useR)
         try {
             const res = await AxiosSecure.patch(`/user/admin/${useR.email}`)
-            console.log(res.data)
+            // console.log(res.data)
             if (res.data.modifiedCount) {
                 Swal.fire({
                     title: "Successfully maked an admin  ",

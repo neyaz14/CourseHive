@@ -17,7 +17,7 @@ const TeacherRequest = () => {
      
         try {
             const res = await AxiosSecure.patch(`/user/teacher/${use.email}`)
-            console.log(res.data)
+            // console.log(res.data)
             if (res.data.modifiedCount) {
                 Swal.fire({
                     title: "Successfully updated role as a teacher",
@@ -42,7 +42,7 @@ const TeacherRequest = () => {
     const handleReject = async (useR) => {
         try {
             const res = await AxiosSecure.patch(`/user/teacher/reject/${useR.email}`)
-            console.log(res.data)
+            // console.log(res.data)
             if (res.data.modifiedCount) {
                 Swal.fire({
                     title: "Successfully rejected ",

@@ -1,19 +1,20 @@
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import useAuth from "./useAuth";
-
+// assignment12-silk.vercel.app
 const axiosSecure = axios.create({
-    baseURL: 'http://localhost:5000'
+    // baseURL: 'http://localhost:5000',
+    baseURL: 'https://assignment12-silk.vercel.app',
+    withCredentials: true,
 })
 const useAxiosSecure = () => {
     const navigate = useNavigate();
     const { logOut } = useAuth();
-    // TODO : fix jwt
-    // ! jwt logout system is not working 
-    // request interceptor to add authorization header for every secure call to the api
+ 
+
     axiosSecure.interceptors.request.use(function (config) {
         const token = localStorage.getItem('access-token')
-        // console.log(token)
+
         config.headers.authorization = `Bearer ${token}`;
         return config;
     }, function (error) {

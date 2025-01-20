@@ -14,7 +14,7 @@ import { app } from '../firebase/firebase.config'
 import axios from 'axios'
 import useAxiosPublic from '../hooks/useAxiosPublic'
 
-// eslint-disable-next-line react-refresh/only-export-components
+
 export const AuthContext = createContext(null)
 const auth = getAuth(app)
 const googleProvider = new GoogleAuthProvider()
@@ -56,14 +56,13 @@ const AuthProvider = ({ children }) => {
   // ----------------------------------------------------------------------------------
   // onAuthStateChange
   useEffect(() => {
-    // TODO : fix jwt
-    // ! jwt logout system is not working 
+
     const unsubscribe = onAuthStateChanged(auth, currentUser => {
       setUser(currentUser)
       // console.log('CurrentUser-->', currentUser)
       if (currentUser) {
         // save user info in db
-        axios.post(`http://localhost:5000/users/${currentUser?.email}`, {
+        axiosPublic.post(`/${currentUser?.email}`, {
           name: currentUser?.displayName,
           image: currentUser?.photoURL,
           email: currentUser?.email,

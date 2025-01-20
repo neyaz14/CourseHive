@@ -10,7 +10,7 @@ const TeacherCourseTable = ({ course, refetch }) => {
     const [isOpen, setIsOpen] = useState(false)
     const [EditModalOpen, setIsEditModalOpen] = useState(false);
 
-    console.log(course)
+   
     const handleDelete = async (cours) => {
         try {
             const res = await AxiosSecure.delete(`/courses/${cours._id}`)

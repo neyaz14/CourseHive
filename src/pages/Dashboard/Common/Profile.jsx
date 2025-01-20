@@ -9,7 +9,7 @@ const Profile = () => {
   if(isLoading) return <LoadingSpinner></LoadingSpinner>
   refetch();
   const [currentUser] = [...users].filter(i=>i.email === user.email)
-  console.log(currentUser)
+  // console.log(currentUser)
   return (
     <div className='flex justify-center items-center h-screen'>
       <Helmet>
