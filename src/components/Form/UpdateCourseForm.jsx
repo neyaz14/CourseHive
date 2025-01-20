@@ -33,7 +33,7 @@ const UpdateCourseForm = ({course}) => {
         title: data.title,
         image: res.data.data.display_url
       }
-      console.log(course)
+      // console.log(course)
       const courseRES = await axiosSecure.patch(`/courses/${course?._id}`, CourseUPInfo);
       if (courseRES.data.insertedId) {
         // reset();

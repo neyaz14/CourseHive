@@ -10,7 +10,7 @@ const useStat = () => {
     const CourseLength = courses.length;
     const usersLength = users.length;
     const EnrollmentLength = courses.reduce((sum, course) => sum + course.TotalEnrollment, 0);
-    console.log(CourseLength, usersLength, EnrollmentLength)
+    // console.log(CourseLength, usersLength, EnrollmentLength)
     const statInfo = {CourseLength, usersLength, EnrollmentLength}
     refetch();
     return statInfo
