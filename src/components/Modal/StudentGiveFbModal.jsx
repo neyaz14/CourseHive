@@ -16,7 +16,9 @@ const StudentGiveFbModal = ({ enrolledCourseDetails, isFeedbackOpen, setIsFeedba
         const feedbackInfo = {
             feedback: data.feedback,
             studentEmail: user.email,
-            courseiD: enrolledCourseDetails._id
+            courseiD: enrolledCourseDetails._id,
+            image: user?.photoURL,
+            name: user?.displayName
         }
         const res = await axiosSecure.post('/feedback', feedbackInfo)
         if (res.data.insertedId) {

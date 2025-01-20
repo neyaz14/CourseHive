@@ -4,6 +4,7 @@ import useAxiosPublic from '../../hooks/useAxiosPublic';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
 import useAuth from '../../hooks/useAuth';
 import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router-dom';
 const CheckOutForm = ({ id, price }) => {
     const [error, setError] = useState('');
     const [clientSecret, setClientSecret] = useState('')
@@ -13,6 +14,7 @@ const CheckOutForm = ({ id, price }) => {
     const { user } = useAuth()
     const stripe = useStripe();
     const elements = useElements();
+    const navigate = useNavigate();
     // const coursePrice = price;
 
     useEffect(() => {
@@ -89,11 +91,11 @@ const CheckOutForm = ({ id, price }) => {
                 const res = await axiosSecure.post('/enrolledINFO', payment);
                 console.log('payment saved', res.data);
          
-                if (res.data?.paymentResult?.insertedId) {
+                if (res.data?.insertedId) {
                     Swal.fire({
                         position: "top-end",
                         icon: "success",
-                        title: "You have Successfully",
+                        title: "You have Successfully buy this course",
                         showConfirmButton: false,
                         timer: 1500
                     });

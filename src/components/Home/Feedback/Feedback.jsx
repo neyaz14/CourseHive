@@ -5,49 +5,17 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import 'swiper/css';
 import Container from '../../Shared/Container';
+import useAllFeedback from '../../../hooks/useAllFeedback';
+import LoadingSpinner from '../../Shared/LoadingSpinner';
 // import 'swiper/css/navigation';
 // import 'swiper/css/pagination';
 
-const feedbacks = [
-    {
-        name: 'Rebecca Fala',
-        title: 'Best Course of my life',
-        feedback: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-        image: '/path/to/image1.jpg',
-    },
-    {
-        name: 'Faiz Pulungan',
-        title: 'Best mentors',
-        feedback: 'Lorem Ipsum has been the industry\'s standard dummy text.',
-        image: '/path/to/image2.jpg',
-    },
-    {
-        name: 'Drian Anderson',
-        title: 'Quality Course',
-        feedback: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-        image: '/path/to/image3.jpg',
-    },
-    {
-        name: ' Anderson',
-        title: 'Quality Course',
-        feedback: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-        image: '/path/to/image3.jpg',
-    },
-    {
-        name: 'Drian ',
-        title: 'Quality Course',
-        feedback: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-        image: '/path/to/image3.jpg',
-    },
-    {
-        name: 'Young Math',
-        title: 'Quality Course',
-        feedback: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-        image: '/path/to/image3.jpg',
-    },
-];
+
 
 const Feedback = () => {
+    const [feedback, refetch, isLoading] = useAllFeedback();
+    if(isLoading) return <LoadingSpinner></LoadingSpinner>;
+    refetch();
     return (
         <Container>
             <section className="bg-[#fee68e] rounded-lg p-10">
@@ -78,7 +46,7 @@ const Feedback = () => {
                     // onSwiper={(swiper) => console.log(swiper)}
                     className='flex lg:flex-col flex-row '
                 >
-                    {feedbacks.map((feedback, index) => (
+                    {feedback.map((fdb, index) => (
                         <SwiperSlide key={index}>
                             <motion.div
                                 className="bg-white p-6 rounded-lg max-h-fixed  shadow-lg "
@@ -86,12 +54,12 @@ const Feedback = () => {
                                 animate={{ opacity: 1, scale: 1 }}
                                 transition={{ duration: 1.5 }}
                             >
-                                <h3 className="text-xl text-gray-950 font-semibold mb-2">{feedback.title}</h3>
-                                <p className="text-gray-600 mb-4">{feedback.feedback}</p>
+                                <h3 className="text-xl text-gray-950 font-semibold mb-2">{fdb.name}</h3>
+                                <p className="text-gray-600 mb-4">{fdb.feedback}</p>
                                 <div className="flex items-center">
-                                    <img src={feedback.image} alt={feedback.name} className="w-12 h-12 rounded-full mr-4" />
+                                    <img src={fdb.image} alt={fdb.name} className="w-12 h-12 rounded-full mr-4" />
                                     <div>
-                                        <p className="font-bold text-gray-800">{feedback.name}</p>
+                                        <p className="font-bold text-gray-800">{fdb.studentEmail}</p>
                                         <p className="text-sm text-gray-800">Student</p>
                                     </div>
                                 </div>
