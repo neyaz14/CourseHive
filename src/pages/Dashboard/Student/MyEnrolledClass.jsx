@@ -13,7 +13,8 @@ const MyEnrolledClass = () => {
     const [assignments] = useAllAssignments();
     if (isLoading) return <LoadingSpinner></LoadingSpinner>
 
-    // console.log(enrolleCourse)
+    refetch();
+    console.log(enrolleCourse)
 
     return (
         <section>
