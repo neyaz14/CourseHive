@@ -17,7 +17,7 @@ const UpdateCourseForm = ({course}) => {
   // console.log(course)
 
   const onSubmit = async (data) => {
-    // TODO : img is not hosting 
+    // Done : img is not hosting 
     const imageFile = { image: data.image[0] }
     const res = await axiosPublic.post(image_hosting_api, imageFile, {
       headers: { 'content-type': 'multipart/form-data' }

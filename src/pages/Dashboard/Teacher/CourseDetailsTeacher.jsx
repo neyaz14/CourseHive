@@ -24,6 +24,7 @@ const CourseDetailsTeacher = () => {
     const courseDetails = [...courses].filter(course => course?.TeacherEmail === user?.email && course._id===id);
     // console.log(courseDetails)
     const CourseD = courseDetails[0]
+    refetch();
     return (
         <section>
             <div>
@@ -73,7 +74,7 @@ const CourseDetailsTeacher = () => {
             </div>
 
             <div>
-                <AssingmentsTable courseDetails={courseDetails}></AssingmentsTable>
+                <AssingmentsTable refetch={refetch} courseDetails={courseDetails}></AssingmentsTable>
             </div>
         </section>
     );

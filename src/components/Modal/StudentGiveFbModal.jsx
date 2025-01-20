@@ -11,7 +11,7 @@ const StudentGiveFbModal = ({ enrolledCourseDetails, isFeedbackOpen, setIsFeedba
     const { user } = useAuth()
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const onSubmit = async (data) => {
-        // TODO : post feedback data also in server side
+        // Done : post feedback data also in server side
         console.log(data)
         const feedbackInfo = {
             feedback: data.feedback,

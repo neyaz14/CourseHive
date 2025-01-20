@@ -69,7 +69,7 @@ const AllCoursesAdmin = () => {
                     <thead >
                         {/* TODO : make it responsive */}
                         <tr className='flex items-center justify-between text-black'>
-                            {/* TODO : write flex-1 in every-form */}
+                         
                             <th className='flex-1'>Title</th>
                             <th className='w-8 flex-1'>Image</th>
                             <th className='flex-1'>Teacher Email</th>
