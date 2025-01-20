@@ -10,8 +10,8 @@ import { Fragment } from 'react'
 
 import UpdateCourseForm from '../Form/UpdateCourseForm'
 
-const UpdateCourseModal = ({ setIsEditModalOpen, isOpen, EditModalOpen, courseID }) => {
-  console.log(courseID)
+const UpdateCourseModal = ({ setIsEditModalOpen, isOpen, EditModalOpen, course }) => {
+  console.log(course)
   return (
     <div>
       <Dialog open={EditModalOpen} onClose={() => setIsEditModalOpen(false)} className="relative z-90">
@@ -19,7 +19,7 @@ const UpdateCourseModal = ({ setIsEditModalOpen, isOpen, EditModalOpen, courseID
           <DialogPanel className="max-w-lg space-y-4 bg-opacity-98 rounded-2xl bg-green-800 p-12 text-white ">
             <DialogTitle className="font-bold">Assingment Upload </DialogTitle>
 
-            <UpdateCourseForm courseID={courseID}></UpdateCourseForm>
+            <UpdateCourseForm course={course}></UpdateCourseForm>
 
 
           </DialogPanel>

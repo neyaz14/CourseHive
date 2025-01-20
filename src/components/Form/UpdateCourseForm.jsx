@@ -9,7 +9,7 @@ const image_hosting_key = import.meta.env.VITE_IMAGE_Hosting_key;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`
 
 
-const UpdateCourseForm = ({courseID}) => {
+const UpdateCourseForm = ({course}) => {
   const { register, handleSubmit, formState: { errors }, reset } = useForm();
   const axiosPublic = useAxiosPublic();
   const axiosSecure = useAxiosSecure();
@@ -48,7 +48,7 @@ const UpdateCourseForm = ({courseID}) => {
   return (
     <div className='w-full flex flex-col justify-center items-center text-gray-800 rounded-xl bg-gray-50'>
       <form onSubmit={handleSubmit(onSubmit)} className="max-w-lg mx-auto p-4 bg-white shadow-md rounded-md">
-        <div className="mb-4">
+        <div className="mb-4 text-white">
           <label className="block ">Title</label>
           <input
           defaultValue={course.title}
@@ -59,7 +59,7 @@ const UpdateCourseForm = ({courseID}) => {
           
         </div>
 
-        <div className="mb-4">
+        <div className="mb-4 text-white">
           <label className="block ">Name</label>
           <input
             value={user.displayName}
@@ -68,7 +68,7 @@ const UpdateCourseForm = ({courseID}) => {
           />
         </div>
 
-        <div className="mb-4">
+        <div className="mb-4 text-white">
           <label className="block ">Email</label>
           <input
             value={user.email}
@@ -77,7 +77,7 @@ const UpdateCourseForm = ({courseID}) => {
           />
         </div>
 
-        <div className="mb-4">
+        <div className="mb-4 text-white">
           <label className="block ">Price</label>
           <input
             type="number"
@@ -88,7 +88,7 @@ const UpdateCourseForm = ({courseID}) => {
          
         </div>
 
-        <div className="mb-4">
+        <div className="mb-4 text-white">
           <label className="block text-gray-700">Description</label>
           <textarea
             {...register('description', { required: 'Description is required' })}
@@ -98,7 +98,7 @@ const UpdateCourseForm = ({courseID}) => {
           
         </div>
 
-        <div className="mb-4">
+        <div className="mb-4 text-white">
           <label className="block text-gray-700">Image</label>
           <input
             type="file"
