@@ -2,11 +2,15 @@ import React from 'react';
 import useAllCourses from '../hooks/useAllCourses';
 import Container from '../components/Shared/Container';
 import CourseCard from '../components/Shared/CourseCard';
+import LoadingSpinner from '../components/Shared/LoadingSpinner';
 
 
 const AllCourses = () => {
     const AllCourses = useAllCourses();
-    const [courses, refetch] = AllCourses ;
+    const [courses, refetch, isLoading] = AllCourses ;
+    const acceptedCourses = [...courses].filter(i=>i.status ==="accepted")
+    if(isLoading)  return <LoadingSpinner></LoadingSpinner>
+    refetch();
     // console.log(courses.length)
     return (
         <Container>
@@ -15,7 +19,7 @@ const AllCourses = () => {
             </div>
             <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1'>
                 {
-                    courses.map(course=> <CourseCard course={course} key={course._id}></CourseCard>)
+                    acceptedCourses.map(course=> <CourseCard course={course} key={course._id}></CourseCard>)
                 }
             </div>
 
