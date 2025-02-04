@@ -1,6 +1,3 @@
-Here’s a well-structured and professional README for your **CourseHive** project:  
-
----
 
 # 📚 CourseHive  
 
