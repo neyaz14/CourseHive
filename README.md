@@ -7,7 +7,7 @@
 
 🔗 **Repositories:**  
 - **Client Side**: [GitHub Repo](https://github.com/Programming-Hero-Web-Course4/b10a12-client-side-neyaz14)  
-- **Server Side**: [GitHub Repo](https://github.com/Programming-Hero-Web-Course4/b10a12-server-side-neyaz14)  
+- **Server Side**: [GitHub Repo](https://github.com/neyaz14/CourseHive-Server)  
 
 ---
 
