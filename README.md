@@ -6,7 +6,7 @@
 🚀 Live Demo: [CourseHive](https://simple-firebase-4327b.web.app)  
 
 🔗 **Repositories:**  
-- **Client Side**: [GitHub Repo](https://github.com/Programming-Hero-Web-Course4/b10a12-client-side-neyaz14)  
+- **Client Side**: [GitHub Repo](https://github.com/neyaz14/CourseHive)
 - **Server Side**: [GitHub Repo](https://github.com/neyaz14/CourseHive-Server)  
 
 ---
